@@ -1,6 +1,4 @@
 ![](/imeetyou-logo.png)
-![](https://badgen.net/github/license/micromatch/micromatch)
-[后端项目地址](https://github.com/zyycode/imeetyou-node)
 
 ## 说明
 > 如果你对本项目有兴趣，欢迎 start ，谢谢 😄
@@ -33,7 +31,8 @@ npm install
 npm run dev
 ```
 > **注意：由于前后端存在跨域，所以浏览器需要在跨域模式下运行**
+
 > Chrome 右键 -> 属性 -> 目标 后添加 `--disable-web-security --user-data-dir`
 
 ## license
-MIT
+![](https://badgen.net/github/license/micromatch/micromatch)
