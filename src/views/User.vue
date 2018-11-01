@@ -4,8 +4,8 @@
     <p>他发过的帖子</p>
     <ul>
       <li v-for="post in userPosts" :key="post.id" class="post-item">
-        <a :href="'/post/' + post.id">{{post.title}}</a>
-        <a :href="'http://127.0.0.1:3000/del-post/' + post.id" class="badge badge-danger post-del">删除</a>
+        <router-link :to="'/post/' + post.id">{{post.title}}</router-link>
+        <router-link :to="'/del-post/' + post.id" class="badge badge-danger post-del">删除</router-link>
       </li>
     </ul>
     <p>他发过的评论</p>
@@ -13,7 +13,7 @@
       <li v-for="coment in userComents" :key="coment.id">
         <h3>
           <span>{{coment.postTitle}}</span>
-          <a :href="'http://127.0.0.1:3000/del-coment/' + coment.id" class="badge badge-danger post-del">删除</a>
+          <router-link :to="'/del-coment/' + coment.id" class="badge badge-danger post-del">删除</router-link>
         </h3>
         <p>{{coment.content}}</p>
         <p>评论时间: {{new Date(coment.timetamp).toLocaleString()}}</p>
@@ -36,7 +36,7 @@
     },
     async created() {
       let userId = this.$route.params.id
-      let res = await this.axios.get('http://127.0.0.1:3000/api/user/' + userId)
+      let res = await this.axios.get('/api/user/' + userId)
       this.user = res.data.user
       this.userPosts = res.data.userPosts
       this.userComents = res.data.userComents

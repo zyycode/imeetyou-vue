@@ -3,7 +3,7 @@
     <nav class="navbar navbar-light">
       <a class="navbar-brand" href="/">I Meet You</a>
       <div class="nav">
-        <router-link class="nav-link" :to="'/user/'" v-show="user">{{user ? user.name : ''}}</router-link>
+        <router-link class="nav-link" :to="'/user/'+user.id" v-show="user">{{user ? user.name : ''}}</router-link>
         <router-link class="nav-link" to="/">首页</router-link>
         <router-link class="nav-link" to="/login" v-show="!user">登录</router-link> 
         <router-link class="nav-link" to="/register" v-show="!user">注册</router-link> 
@@ -27,12 +27,12 @@
     methods: {
       logout() {
         this.user = null
-        this.axios.get('http://127.0.0.1:3000/logout')
+        this.axios.get('/logout')
         // document.cookie = 'userId=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'
       }
     },
     async created() {
-      let res = await this.axios.get('http://127.0.0.1:3000/api/userinfo')
+      let res = await this.axios.get('/api/userinfo')
       this.user = res.data
     },
   }

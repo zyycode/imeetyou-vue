@@ -25,7 +25,7 @@
     },
     methods: {
       async publish() {
-        let res = await this.axios.post('http://127.0.0.1:3000/add-post', {
+        let res = await this.axios.post('/add-post', {
           title: this.title,
           content: this.content,
         })

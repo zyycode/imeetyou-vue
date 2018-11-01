@@ -12,7 +12,7 @@
       <div class="form-group">
         <label for="captchaCheck">验证码(区分大小写)</label>
         <input v-model="captcha" type="text" class="form-control" id="captchaCheck" placeholder="请输入验证码">
-        <img src="http://127.0.0.1:3000/captcha" alt="captcha">
+        <img src="/captcha" alt="captcha">
       </div>
       <div v-show="hasError" class="alert alert-danger" role="alert">
         您输入的账户密码或验证码不正确
@@ -45,7 +45,7 @@
       async login() {
 
         try {
-          let res = await this.axios.post('http://127.0.0.1:3000/login', {
+          let res = await this.axios.post('/login', {
             username: this.username,
             password: this.password,
             captcha: this.captcha,

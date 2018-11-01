@@ -29,7 +29,7 @@
     methods: {
       async register() {
         if (this.username && this.password) {
-          await this.axios.post('http://127.0.0.1:3000/register', {
+          await this.axios.post('/register', {
             username: this.username,
             password: this.password
           })

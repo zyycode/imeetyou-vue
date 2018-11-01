@@ -5,7 +5,7 @@
 			<li v-for="post in posts" :key="post.id" class="alert alert-success">
         <span class="post-title">主题</span>
 				<router-link :to="'/post/' + post.id">{{post.title}}</router-link>
-        <span class="float-right badge badge-success post-user">发帖人：<a :href="'/user/'+post.userId">{{post.name}}</a></span>
+        <span class="float-right badge badge-success post-user">发帖人：<router-link :to="'/user/'+post.userId">{{post.name}}</router-link></span>
 			</li>
 		</ul>
   </div>
@@ -19,7 +19,7 @@ export default {
     }
   },
   async created() {
-    let res = await this.axios.get('http://127.0.0.1:3000/api/posts')
+    let res = await this.axios.get('/api/posts')
     this.posts = res.data
   }
 }

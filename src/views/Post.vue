@@ -31,7 +31,7 @@
     },
     methods: {
       async postComment() {
-        let res = await this.axios.post('http://127.0.0.1:3000/add-coment', {
+        let res = await this.axios.post('/add-coment', {
           content: this.myComment,
           postid: this.$route.params.id
         })
@@ -42,10 +42,10 @@
     },
     async created() {
       let postId = this.$route.params.id
-      let res = await this.axios.get('http://127.0.0.1:3000/api/post/' + postId)
+      let res = await this.axios.get('/api/post/' + postId)
       this.post = res.data
 
-      let commentRes = await this.axios.get('http://127.0.0.1:3000/api/coments/' + postId)
+      let commentRes = await this.axios.get('/api/coments/' + postId)
       this.comments = commentRes.data
     }
   }
