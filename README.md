@@ -27,7 +27,10 @@
 - [x] 用户删除帖子、评论
 
 ## 在线预览
-地址: [http://bbs.zyycoder.com](http://bbs.zyycoder.com)
+**地址:** [http://bbs.zyycoder.com]
+(http://bbs.zyycoder.com)
+
+----
 ![](/code.png)
 
 ## 项目运行
