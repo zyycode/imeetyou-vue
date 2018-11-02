@@ -1,16 +1,18 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-light">
-      <a class="navbar-brand" href="/">I Meet You</a>
+      <a class="logo-font" href="/">
+        I Meet You
+      </a>
       <div class="nav">
-        <router-link class="nav-link" :to="'/user/'+user.id" v-show="user">{{user ? user.name : ''}}</router-link>
+        <router-link class="nav-link" :to="'/user/'+user.id ? 0 : user.id " v-show="user">{{user ? user.name : ''}}</router-link>
         <router-link class="nav-link" to="/">首页</router-link>
         <router-link class="nav-link" to="/login" v-show="!user">登录</router-link> 
         <router-link class="nav-link" to="/register" v-show="!user">注册</router-link> 
         <router-link class="nav-link" to="/publish" v-show="user">发帖</router-link> 
         <button class="btn btn-link text-danger" @click="logout" v-show="user">退出</button>
       </div>
-    </nav> 
+    </nav>
     <div class="container content">
       <router-view/>
     </div>
@@ -66,7 +68,35 @@
     font-size: 16px;
     padding: .2rem .5rem;
   }
-  @media screen {
-    
+  .logo-font{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    background-image: 
+      linear-gradient(
+        to right,
+        #1A349E   0%,
+        #1A709E 10%,
+        #1A9E6C 20%,
+        #1A9E8E 30%,
+        #1A9E56 40%,
+        #309E1A 50%,
+        #1A349E 60%,
+        #1A709E 70%,
+        #1A9E6C 80%,
+        #309E1A 90%
+        #1A349E 100%);
+    background-size:200% 100%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:move 3s infinite linear;
+  }
+  @keyframes move{
+    0%{
+      background-position: 0 0;
+    }
+    100%{
+      background-position: -100% 0;
+    }
   }
 </style>
